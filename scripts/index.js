@@ -2,8 +2,8 @@ const formElement = document.querySelector('.form');
 const formCloseButtonElement = formElement.querySelector('.form__close-button');
 const formOpenButtonElement = document.querySelector('.profile__edit-button');
 
-let nameInput = document.querySelector('.input__name');
-let jobInput = document.querySelector('.input__job');
+let nameInput = document.querySelector('.form__input-name');
+let jobInput = document.querySelector('.form__input-job');
 
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__description');
