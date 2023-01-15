@@ -1,54 +1,38 @@
-const formElement = document.querySelector('.form');
-const formCloseButtonElement = formElement.querySelector('.form__close-button');
-const formOpenButtonElement = document.querySelector('.profile__edit-button');
+const popupElement = document.querySelector('.popup');
+const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
+const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 
-let nameInput = document.querySelector('.form__input-name');
-let jobInput = document.querySelector('.form__input-job');
+let nameInput = document.querySelector('.popup__input_type_name');
+let descriptionInput = document.querySelector('.popup__input_type_description');
 
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__description');
 
-const openForm = function() {
+const openPopup = function () {
 
-  formElement.classList.add('form_opened'); 
+  popupElement.classList.add('popup_opened');
 
-  profileName.value;
-  profileJob.value;
-  
-  jobInput.value = profileJob.textContent;
+  descriptionInput.value = profileJob.textContent;
   nameInput.value = profileName.textContent;
 }
 
-const closeForm = function() {
+const closePopup = function () {
 
-    formElement.classList.remove('form_opened'); 
-  }
-
-const closeFormFromButton = function(){
-
-  profileName.value;
-  profileJob.value;
-  
-  jobInput.value = profileJob.textContent;
-  nameInput.value = profileName.textContent;
-
-  formElement.classList.remove('form_opened'); 
+  popupElement.classList.remove('popup_opened');
 }
 
-formOpenButtonElement.addEventListener('click', openForm);
-formCloseButtonElement.addEventListener('click', closeFormFromButton);
+popupOpenButtonElement.addEventListener('click', openPopup);
+popupCloseButtonElement.addEventListener('click', closePopup);
 
 
-function changeInfo (evt){
+function changeInfo(evt) {
 
   evt.preventDefault();
 
- nameInput.value;
- jobInput.value;
 
-profileName.textContent = nameInput.value;
-profileJob.textContent = jobInput.value;
-closeForm();
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = descriptionInput.value;
+  closePopup();
 }
 
-formElement.addEventListener('submit', changeInfo); 
+popupElement.addEventListener('submit', changeInfo); 

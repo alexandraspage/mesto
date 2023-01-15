@@ -1,4 +1,4 @@
-.form__submit-button{
+.popup__submit-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -8,7 +8,6 @@
     background-color: #000000;
     cursor: pointer;
     color: #FFFFFF;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -19,17 +18,19 @@
     margin-right: 36px;
     border-radius: 2px;
 }
-@media screen and (max-width: 570px){
-    .form__submit-button {
-     margin-top: 23px;
-     width: 238px;
-     height: 46px;
-     margin-left: 22px;
-     margin-right: 22px;
-     font-size: 14px;
-     line-height: 17px;
+
+@media screen and (max-width: 570px) {
+    .popup__submit-button {
+        margin-top: 23px;
+        width: 238px;
+        height: 46px;
+        margin-left: 22px;
+        margin-right: 22px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }
-.form__submit-button:hover{
+
+.popup__submit-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
