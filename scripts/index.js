@@ -1,4 +1,5 @@
 const popupElement = document.querySelector('.popup');
+const formElement = document.querySelector('.popup__form');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 
@@ -35,4 +36,4 @@ function changeInfo(evt) {
   closePopup();
 }
 
-popupElement.addEventListener('submit', changeInfo); 
+formElement.addEventListener('submit', changeInfo); 
