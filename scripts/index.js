@@ -152,7 +152,7 @@ const createCard = function (cardName, cardLink) {
 
   });
 
-  const closeImagePopupButton = imagePopup.querySelector('.image_popup__close-button');
+  const closeImagePopupButton = imagePopup.querySelector('.image-popup__close-button');
   closeImagePopupButton.addEventListener('click', function (popup) {
 
     closePopup(imagePopup);
@@ -186,7 +186,7 @@ addButton.addEventListener('click', function (popup) {
 
 //Делаем кнопку закрытия попапа карточек
 
-const cardCloseButton = document.querySelector('.card-popup_close-button');
+const cardCloseButton = document.querySelector('.card-popup__close-button');
 
 
 cardCloseButton.addEventListener('click', function (popup) {
