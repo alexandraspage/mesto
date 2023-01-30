@@ -25,48 +25,7 @@
       <button class="profile__add-button" type="button"></button>
     </section>
     <section class="elements">
-      <div class="elements__group">
-        <img class="elements__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
-        <div class="elements__info">
-          <h2 class="elements__caption">Карачаевск</h2>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__group">
-        <img class="elements__image" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Эльбрус">
-        <div class="elements__info">
-          <h2 class="elements__caption">Гора Эльбрус</h2>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__group">
-        <img class="elements__image" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай">
-        <div class="elements__info">
-          <h2 class="elements__caption">Домбай</h2>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__group">
-        <img class="elements__image" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Эльбрус">
-        <div class="elements__info">
-          <h2 class="elements__caption">Гора Эльбрус</h2>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__group">
-        <img class="elements__image" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай">
-        <div class="elements__info">
-          <h2 class="elements__caption">Домбай</h2>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__group">
-        <img class="elements__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
-        <div class="elements__info">
-          <h2 class="elements__caption">Карачаево-Черкесия</h2>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
+
     </section>
   </main>
   <footer class="footer">
@@ -82,6 +41,24 @@
         <input type="submit" class="popup__submit-button" value="Сохранить">
       </form>
       <button class="popup__close-button" type="button"></button>
+    </div>
+  </div>
+  <div class="card-popup popup">
+    <div class="card-popup__container popup__container">
+      <form class="card-popup__form popup__form" name="newCard">
+        <h3 class="card-popup__title popup__title">Новое место</h3>
+        <input class="popup__input popup__input_card_name" placeholder="Название" type="text" name="cardName">
+        <input class="popup__input popup__input_card_link" placeholder="Ссылка на картинку" type="text" name="cardLink">
+        <input type="submit" class="card-popup_submit-button popup__submit-button" value="Сохранить">
+      </form>
+      <button class="card-popup_close-button  popup__close-button" type="button"></button>
+    </div>
+  </div>
+  <div class="popup image-popup">
+    <div class="image-popup__container">
+      <img class="image-popup__image" src="" alt="">
+      <h2 class="image-popup__title"></h2>
+      <button class="image_popup__close-button popup__close-button" type="button"></button>
     </div>
   </div>
   <script src="./scripts/index.js"></script>
