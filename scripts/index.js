@@ -1,14 +1,14 @@
 
-const popupElement = document.querySelector('.popup');
-const formElement = document.querySelector('.popup__form');
-const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
-const popupOpenButtonElement = document.querySelector('.profile__edit-button');
+const profilePopupElement = document.querySelector('.profile-popup');
+const profileFormElement = profilePopupElement.querySelector('.popup__form');
+const profilePopupCloseButtonElement = profilePopupElement.querySelector('.popup__close-button');
+const profilePopupOpenButtonElement = document.querySelector('.profile__edit-button');
 
-let nameInput = document.querySelector('.popup__input_type_name');
-let descriptionInput = document.querySelector('.popup__input_type_description');
+const nameInput = document.querySelector('.popup__input_type_name');
+const descriptionInput = document.querySelector('.popup__input_type_description');
 
-let profileName = document.querySelector('.profile__name');
-let profileJob = document.querySelector('.profile__description');
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__description');
 
 const openPopup = function (popup) {
 
@@ -21,16 +21,16 @@ const closePopup = function (popup) {
   popup.classList.remove('popup_opened');
 }
 
-popupOpenButtonElement.addEventListener('click', function (popup) {
-  openPopup(popupElement)
+profilePopupOpenButtonElement.addEventListener('click', function (popup) {
+  openPopup(profilePopupElement)
   descriptionInput.value = profileJob.textContent;
   nameInput.value = profileName.textContent;
 
 });
 
-popupCloseButtonElement.addEventListener('click', function (popup) {
+profilePopupCloseButtonElement.addEventListener('click', function (popup) {
 
-  closePopup(popupElement);
+  closePopup(profilePopupElement);
   descriptionInput.value = profileJob.textContent;
   nameInput.value = profileName.textContent;
 });
@@ -43,10 +43,10 @@ function changeInfo(evt) {
 
   profileName.textContent = nameInput.value;
   profileJob.textContent = descriptionInput.value;
-  closePopup(popupElement);
+  closePopup(profilePopupElement);
 }
 
-formElement.addEventListener('submit', changeInfo);
+profileFormElement.addEventListener('submit', changeInfo);
 
 
 //Проект 5. Добавление карточек.
@@ -83,57 +83,35 @@ const elements = document.querySelector('.elements');
 
 //делаем сердечко черным 
 
-const likeButton = document.querySelectorAll('.elements__like-button');
-
-const activateLike = function (evt) {
+const toggleLike = function (evt) {
   evt.target.classList.toggle('elements__like-button_active');
 }
 
+const template = document.querySelector('#card-template');
 
-
-
+//создание карточки
 const createCard = function (cardName, cardLink) {
-  const divGroup = document.createElement('div');
-  divGroup.classList.add('elements__group');
 
-  const img = document.createElement('img');
-  img.classList.add('elements__image');
-  img.src = cardLink;
-  img.setAttribute('alt', `${cardName}`);
+  const cardElement = template.content.querySelector('.elements__group').cloneNode(true);
 
-  const trashButton = document.createElement('button');
-  trashButton.classList.add('elements__trash-button');
-  trashButton.setAttribute('type', 'button');
+  cardElement.querySelector('.elements__image').src = cardLink;
+  cardElement.querySelector('.elements__image').alt = cardLink;
+  cardElement.querySelector('.elements__caption').textContent = cardName;
 
-  const divInfo = document.createElement('div');
-  divInfo.classList.add('elements__info');
-
-  const caption = document.createElement('h2');
-  caption.classList.add('elements__caption');
-  caption.innerText = cardName;
-
-  const likeButton = document.createElement('button');
-  likeButton.classList.add('elements__like-button');
-  likeButton.setAttribute('type', 'button');
-
-  likeButton.addEventListener('click', activateLike);
-
-  //добавляем элементы
-  divInfo.appendChild(caption);
-  divInfo.appendChild(likeButton);
-  divGroup.appendChild(img);
-  divGroup.appendChild(trashButton);
-  divGroup.appendChild(divInfo);
-
+  const trashButton = cardElement.querySelector('.elements__trash-button');
   trashButton.addEventListener('click', () => {
-    divGroup.remove();
+    cardElement.remove();
   });
+
+  const likeButton = cardElement.querySelector('.elements__like-button');
+  likeButton.addEventListener('click', toggleLike);
 
   //Попап картинки
 
   const imagePopup = document.querySelector('.image-popup');
+  const cardImage = cardElement.querySelector('.elements__image');
 
-  img.addEventListener('click', function (evt) {
+  cardImage.addEventListener('click', function (evt) {
 
     const currentCard = evt.target.closest('.elements__group');
     const currentCardImg = currentCard.querySelector('.elements__image');
@@ -147,18 +125,19 @@ const createCard = function (cardName, cardLink) {
     popupPlaceImg.src = currentCardImg.src;
     popupPlaceImg.alt = currentCardTitle.textContent;
 
+    const closeImagePopupButton = imagePopup.querySelector('.image-popup__close-button');
+    closeImagePopupButton.addEventListener('click', function (popup) {
+
+      closePopup(imagePopup);
+    });
+
     openPopup(imagePopup);
 
 
   });
 
-  const closeImagePopupButton = imagePopup.querySelector('.image-popup__close-button');
-  closeImagePopupButton.addEventListener('click', function (popup) {
 
-    closePopup(imagePopup);
-  });
-
-  return divGroup;
+  return cardElement;
 
 }
 
@@ -174,7 +153,7 @@ initialCards.forEach((item) => {
 });
 
 
-//Делаем кнопку открытия попапа для новой карточки активной
+//Делаем кнопку открытия попапа для новой карточки
 
 const cardPopup = document.querySelector('.card-popup');
 const addButton = document.querySelector('.profile__add-button');
@@ -199,7 +178,7 @@ const cardNameInput = document.querySelector('.popup__input_card_name');
 const cardLinkInput = document.querySelector('.popup__input_card_link');
 
 
-const formSubmitHandler = function (evt) {
+const cardFormSubmitHandler = function (evt) {
   evt.preventDefault();
 
   const cardNameValue = cardNameInput.value;
@@ -215,5 +194,5 @@ const formSubmitHandler = function (evt) {
 
 };
 
-cardForm.addEventListener('submit', formSubmitHandler);
+cardForm.addEventListener('submit', cardFormSubmitHandler);
 
