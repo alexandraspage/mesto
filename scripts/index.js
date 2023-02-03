@@ -88,6 +88,7 @@ const toggleLike = function (evt) {
 }
 
 const template = document.querySelector('#card-template');
+const imagePopup = document.querySelector('.image-popup');
 
 //создание карточки
 const createCard = function (cardName, cardLink) {
@@ -108,7 +109,6 @@ const createCard = function (cardName, cardLink) {
 
   //Попап картинки
 
-  const imagePopup = document.querySelector('.image-popup');
   const cardImage = cardElement.querySelector('.elements__image');
 
   cardImage.addEventListener('click', function (evt) {
@@ -125,14 +125,7 @@ const createCard = function (cardName, cardLink) {
     popupPlaceImg.src = currentCardImg.src;
     popupPlaceImg.alt = currentCardTitle.textContent;
 
-    const closeImagePopupButton = imagePopup.querySelector('.image-popup__close-button');
-    closeImagePopupButton.addEventListener('click', function (popup) {
-
-      closePopup(imagePopup);
-    });
-
     openPopup(imagePopup);
-
 
   });
 
@@ -171,6 +164,12 @@ const cardCloseButton = document.querySelector('.card-popup__close-button');
 cardCloseButton.addEventListener('click', function (popup) {
   closePopup(cardPopup);
 });
+
+const closeImagePopupButton = document.querySelector('.image-popup__close-button');
+    closeImagePopupButton.addEventListener('click', function (popup) {
+
+      closePopup(imagePopup);
+    });
 
 //Отправка формы
 const cardForm = document.querySelector('.card-popup__form')
