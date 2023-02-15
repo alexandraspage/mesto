@@ -10,15 +10,43 @@ const descriptionInput = document.querySelector('.popup__input_type_description'
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__description');
 
+function closePopupByEsc (event){
+  const openedPopup = document.querySelector('.popup_opened');
+  if (event.key === 'Escape'){
+    closePopup(openedPopup);
+  }
+}
+
 const openPopup = function (popup) {
 
   popup.classList.add('popup_opened');
 
+  clearError(popup);
+
+  popup.addEventListener('click', function(event){
+    if(event.target === event.currentTarget) {
+      closePopup(popup);
+    };
+    
+  });
+
+  document.addEventListener('keydown', closePopupByEsc);
 }
 
-const closePopup = function (popup) {
+function clearError(popup) {
+  Array.from(popup.querySelectorAll('.popup__input')).forEach((item) => {
+    item.classList.remove('popup__input_type_error');
+  });
+  Array.from(popup.querySelectorAll('.popup__span')).forEach((item) => {
+    item.classList.remove('popup__error_visible');
+    item.textContent = '';
+  })
+}
+
+  const closePopup = function (popup) {
 
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEsc);
 }
 
 profilePopupOpenButtonElement.addEventListener('click', function (popup) {
@@ -194,4 +222,3 @@ const cardFormSubmitHandler = function (evt) {
 };
 
 cardForm.addEventListener('submit', cardFormSubmitHandler);
-
