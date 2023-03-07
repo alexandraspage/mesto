@@ -22,8 +22,8 @@ class FormValidator {
 
     }
 
-    _disableSubmit(event){
-        event.preventDefault();
+    _disableSubmit(evt){
+        evt.preventDefault();
       }
 
     _handleFormInput(item) {
@@ -57,8 +57,7 @@ class FormValidator {
 
     enableValidation() {
 
-        this._formElement.addEventListener('submit', () => {
-            this._disableSubmit()});
+        this._formElement.addEventListener('submit', this._disableSubmit);
         this._formElement.addEventListener('input', () => {
             this._toggleButton();
         })
