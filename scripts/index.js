@@ -36,17 +36,6 @@ const openPopup = function (popup) {
   document.addEventListener('keydown', closePopupByEsc);
 }
 
-/*
-function clearError(popup) {
-  Array.from(popup.querySelectorAll('.popup__input')).forEach((item) => {
-    item.classList.remove('popup__input_type_error');
-  });
-  Array.from(popup.querySelectorAll('.popup__span')).forEach((item) => {
-    item.classList.remove('popup__error_visible');
-    item.textContent = '';
-  })
-}
-*/
 const closePopup = function (popup) {
 
   popup.classList.remove('popup_opened');
@@ -144,9 +133,6 @@ addButton.addEventListener('click', function (popup) {
   cardNameInput.value = '';
   cardLinkInput.value = '';
 
-  //cardPopupSubmitButton.setAttribute('disabled', 'disabled');
-  //cardPopupSubmitButton.classList.add('popup__submit-button_disabled');
-
   cardFormValidation.resetValidation();
 
   openPopup(cardPopup);
@@ -218,7 +204,8 @@ const formValidationConfig = {
   submitButtonSelector: '.popup__submit-button',
   inactiveButtonClass: 'popup__submit-button_disabled',
   inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
+  errorClass: 'popup__error_visible',
+  spanClass : '.popup__span'
 };
 
 

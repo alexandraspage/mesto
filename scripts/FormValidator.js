@@ -8,12 +8,14 @@ class FormValidator {
         this._inactiveButtonClass = config.inactiveButtonClass;
         this._inputErrorClass = config.inputErrorClass;
         this._errorClass = config.errorClass;
+        this._spanClass = config.spanClass;
 
         this._formElement = formElement;
     }
 
     _addInputListener() {
         this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+        this._spanList = Array.from(this._formElement.querySelectorAll(this._spanClass));
         this._submitButton = this._formElement.querySelector(this._submitButtonSelector);
         this._inputList.forEach((item) => {
             item.addEventListener('input', () => {
@@ -26,6 +28,8 @@ class FormValidator {
     _disableSubmit(evt) {
         evt.preventDefault();
     }
+
+
 
     _handleFormInput(item) {
 
@@ -46,24 +50,24 @@ class FormValidator {
 
     }
 
+
+
     resetValidation() {
-        this._toggleButtonState();
+        this.toggleButton();
 
         this._inputList.forEach((item) => {
-            item.classList.remove('popup__input_type_error');
+
+            item.classList.remove(this._inputErrorClass);
 
         });
-        Array.from(this._formElement.querySelectorAll('.popup__span')).forEach((item) => {
-            item.classList.remove('popup__error_visible');
+
+        this._spanList.forEach((item) => {
+            item.classList.remove(this._errorClass);
             item.textContent = '';
         })
 
-    };
 
-    _toggleButtonState() {
-        this._submitButton.setAttribute('disabled', 'disabled');
-        this._submitButton.classList.add('popup__submit-button_disabled');
-    }
+    };
 
     toggleButton() {
 
