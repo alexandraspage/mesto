@@ -26,6 +26,7 @@ class Card {
     this._cardImage.alt = this._name;
 
     return this._element;
+
   }
 
 
@@ -37,16 +38,7 @@ class Card {
 
     this._likeButton.classList.toggle('elements__like-button_active');
   }
-  /*
-    _handleOpenPopup() {
-      imagePopupImg.src = this._link;
-      imagePopupImg.alt = this._name;
-      imagePopupTitle.textContent = this._name;
-  
-      openPopup(imagePopup);
-  
-    }
-  */
+
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => {
       this._toggleLike()
