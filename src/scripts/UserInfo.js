@@ -10,7 +10,6 @@ export default class UserInfo {
         return this._profileInfo;
     }
     setUserInfo({ profileName, profileDescription }) {
-        this.getUserInfo();
         this._nameInfo.textContent = profileName;
         this._jobInfo.textContent = profileDescription;
     }

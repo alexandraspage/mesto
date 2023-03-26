@@ -7,53 +7,19 @@ import UserInfo from './UserInfo.js';
 
 import '../pages/index.css';
 
+import {
+  profileForm,
+  cardForm,
+  profilePopupOpenButtonElement,
+  nameInput,
+  jobInput,
+  initialCards,
+  addButton,
+  cardNameInput,
+  cardLinkInput,
+  formValidationConfig
+} from './utils/constants.js'
 
-
-const profileForm = document.forms['profileInfo'];
-const cardForm = document.forms['newCard'];
-const profilePopupOpenButtonElement = document.querySelector('.profile__edit-button');
-
-const nameInput = document.querySelector('.popup__input_type_name');
-const descriptionInput = document.querySelector('.popup__input_type_description');
-
-const profileName = document.querySelector('.profile__name');
-const profileJob = document.querySelector('.profile__description');
-
-
-//Проект 5. Добавление карточек.
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-
-const addButton = document.querySelector('.profile__add-button');
-
-const cardNameInput = document.querySelector('.popup__input_card_name');
-const cardLinkInput = document.querySelector('.popup__input_card_link');
 
 
 //попап картинки
@@ -66,15 +32,6 @@ function handleCardClick(name, link) {
 };
 
 bigImagePopup.setEventListeners();
-
-const formValidationConfig = {
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__submit-button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible',
-  spanClass: '.popup__span'
-};
 
 
 const infoFormValidation = new FormValidator(formValidationConfig, profileForm);
@@ -99,8 +56,10 @@ profilePopup.setEventListeners();
 profilePopupOpenButtonElement.addEventListener('click', () => {
   profilePopup.openPopup();
   infoFormValidation.resetValidation();
-  descriptionInput.value = profileJob.textContent;
-  nameInput.value = profileName.textContent;
+  
+  const infoObject = userInfo.getUserInfo();
+  nameInput.value = infoObject.name;
+  jobInput.value = infoObject.job; 
 
 });
 
@@ -119,8 +78,6 @@ addCardPopup.setEventListeners();
 addButton.addEventListener('click', () => {
 
   addCardPopup.openPopup();
-  cardNameInput.value = '';
-  cardLinkInput.value = '';
   cardFormValidation.resetValidation();
 
 
