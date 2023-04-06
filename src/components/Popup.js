@@ -3,6 +3,7 @@ export default class Popup {
     constructor(popupSelector) {
         this._popup = document.querySelector(popupSelector);
         this._handleEscClose = this._handleEscClose.bind(this);
+        this._submitButton = this._popup.querySelector('.popup__submit-button');
 
     }
     _handleEscClose(event) {
@@ -19,6 +20,7 @@ export default class Popup {
         document.addEventListener('keydown', this._handleEscClose)
 
 
+
     }
 
     closePopup() {
@@ -27,6 +29,15 @@ export default class Popup {
 
 
 
+    }
+
+    renderLoading(isLoading) {
+        console.log(isLoading);
+        if (isLoading) {
+            this._submitButton.value = "Сохранение...";
+        } else {
+            this._submitButton.value = "Создать";
+        }
     }
 
 

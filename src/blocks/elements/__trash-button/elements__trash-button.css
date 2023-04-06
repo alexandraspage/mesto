@@ -16,6 +16,8 @@
     color: #FFFFFF;
     cursor: pointer;
     padding: 0;
+    visibility: hidden;
+    opacity: 0;
 }
 .elements__trash-button:hover {
     opacity: 0.6;

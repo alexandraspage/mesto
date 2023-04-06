@@ -1,11 +1,14 @@
 export const profileForm = document.forms['profileInfo'];
 export const cardForm = document.forms['newCard'];
+export const avatarForm = document.forms['avatar'];
 export const profilePopupOpenButtonElement = document.querySelector('.profile__edit-button');
+export const avatarButton = document.querySelector('.profile__avatar-button');
 
 export const nameInput = document.querySelector('.popup__input_type_name');
 export const jobInput = document.querySelector('.popup__input_type_description');
 
 
+/*
 export const initialCards = [
     {
       name: 'Архыз',
@@ -32,7 +35,7 @@ export const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
   ];
-  
+  */
   
   export const addButton = document.querySelector('.profile__add-button');
   
