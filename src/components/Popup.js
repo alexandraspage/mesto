@@ -32,7 +32,7 @@ export default class Popup {
     }
 
     renderLoading(isLoading) {
-        console.log(isLoading);
+
         if (isLoading) {
             this._submitButton.value = "Сохранение...";
         } else {

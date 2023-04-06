@@ -12,15 +12,14 @@ export default class UserInfo {
         return this._profileInfo;
     }
     setUserInfo(data) {
-        
+
         this._nameInfo.textContent = data.name;
         this._jobInfo.textContent = data.about;
         this._avatar.src = data.avatar;
-        const userId = data._id;
+
     }
-    setAvatar(data){
-        console.log(data);
-        this._avatar.src = data.avatar; 
+    setAvatar(data) {
+        this._avatar.src = data.avatar;
     }
 
 

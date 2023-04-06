@@ -14,10 +14,7 @@ import {
   profilePopupOpenButtonElement,
   nameInput,
   jobInput,
-  initialCards,
   addButton,
-  cardNameInput,
-  cardLinkInput,
   formValidationConfig,
   avatarButton,
   avatarForm
@@ -127,7 +124,7 @@ function createCard(items, userCurrentId) {
     {
       handleCardLike: () => {
         if (card.isCardLiked()) {
-          //console.log(card.isCardLiked());
+          
           api.deleteLike(card.getCardId())
             .then((data) => {
               card.setLikesCount(data);
@@ -146,7 +143,7 @@ function createCard(items, userCurrentId) {
         }
       }
     });
-  //console.log(userCurrentId)
+  
   return card.generateCard();
 }
 
@@ -161,10 +158,9 @@ const deleteCardPopup = new PopupWithSubmit('.confirm-popup',
   {
     handleDeleteSubmit: () => {
       const currentCard = deleteCardPopup.getCard();
-      console.log(currentCard);
+
       api.deleteCard(deleteCardPopup.getCardId())
         .then((data) => {
-          console.log(data)
           currentCard.remove();
         })
         .catch((err) => { console.log(err) })
@@ -193,23 +189,7 @@ Promise.all([api.getAllCards(), api.getInfo()])
   })
   .catch((err) => { console.log(err) })
 
-/*
-const cards = api.getAllCards();
-cards.then((data) => {
-  cardsRendered.renderItems(data);
- 
-})
-.catch((err) => {console.log(err)})
 
-const info = api.getInfo();
-info.then((data) => {
-  
-  userInfo.setUserInfo(data);
- 
-})
-.catch((err) => {console.log(err)})
-
-*/
 
 
 

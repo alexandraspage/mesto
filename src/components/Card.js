@@ -52,9 +52,7 @@ class Card {
   }
 
   setLikesCount(data) {
-    console.log(data)
     this._likes = data.likes;
-    console.log(data.likes)
     this._likeNumber.textContent = data.likes.length;
   }
 
@@ -69,11 +67,7 @@ class Card {
 
 
   isCardLiked() {
-    //console.log(this._likes)
     return this._likes.some((like) => {
-
-      //console.log(this._userId === like._id)
-      //console.log(this._userId)
       return like._id === this._userId
     })
 
@@ -84,7 +78,6 @@ class Card {
     if (this._ownerId === this._userId) {
       this._trashButton.classList.add('elements__trash-button_active');
       this._trashButton.addEventListener('click', () => {
-        console.log(this._deleteCardPopup);
         this._deleteCardPopup.openPopup(this._element, this._id);
       })
     } else {
@@ -103,7 +96,7 @@ class Card {
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => {
       this._handleCardLike();
-      //console.log(this._userId);
+
 
     });
 
